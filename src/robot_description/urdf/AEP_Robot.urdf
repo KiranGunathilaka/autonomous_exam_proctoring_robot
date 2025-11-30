@@ -8,17 +8,17 @@
     name="base_link">
     <inertial>
       <origin
-        xyz="-0.00080449 0.0073707 0.17128"
+        xyz="-0.0023189 0.0073427 0.1843"
         rpy="0 0 0" />
       <mass
-        value="15.463" />
+        value="15.896" />
       <inertia
-        ixx="0.60144"
-        ixy="-9.4682E-05"
-        ixz="0.035522"
-        iyy="0.53218"
-        iyz="0.00107"
-        izz="0.15057" />
+        ixx="0.65725"
+        ixy="-3.6456E-08"
+        ixz="0.040641"
+        iyy="0.58335"
+        iyz="-2.2784E-12"
+        izz="0.1582" />
     </inertial>
     <visual>
       <origin
@@ -31,7 +31,7 @@
       <material
         name="">
         <color
-          rgba="0.4 0.4 0.4 1" />
+          rgba="0.5 0.5 0.5 1" />
       </material>
     </visual>
     <collision>
@@ -71,7 +71,7 @@
       <material
         name="">
         <color
-          rgba="0 0.6 1 1" />
+          rgba="0.2 0.7 1 1" />
       </material>
     </visual>
     <collision>
@@ -88,7 +88,7 @@
     name="lidar_joint"
     type="fixed">
     <origin
-      xyz="0 0.00042039 0.30565"
+      xyz="0 0.000420393431200835 0.32565"
       rpy="0 0 0" />
     <parent
       link="base_link" />
@@ -124,7 +124,7 @@
       <material
         name="">
         <color
-          rgba="0.5 0 0.7 1" />
+          rgba="0.7 0.1 0.8 1" />
       </material>
     </visual>
     <collision>
@@ -149,22 +149,27 @@
       link="left_wheel_link" />
     <axis
       xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
   </joint>
   <link
     name="right_wheel_link">
     <inertial>
       <origin
-        xyz="5.3214E-08 0.017522 4.2233E-07"
+        xyz="3.8174E-07 0.017522 1.8833E-07"
         rpy="0 0 0" />
       <mass
         value="0.583" />
       <inertia
-        ixx="0.00092034"
-        ixy="-1.3859E-10"
-        ixz="-4.3295E-07"
+        ixx="0.00091579"
+        ixy="-1.3235E-09"
+        ixz="-2.5693E-06"
         iyy="0.0017198"
-        iyz="-1.1108E-09"
-        izz="0.00091438" />
+        iyz="-7.3676E-10"
+        izz="0.00091893" />
     </inertial>
     <visual>
       <origin
@@ -177,7 +182,7 @@
       <material
         name="">
         <color
-          rgba="0.5 0 0.7 1" />
+          rgba="0.7 0.1 0.8 1" />
       </material>
     </visual>
     <collision>
@@ -202,21 +207,26 @@
       link="right_wheel_link" />
     <axis
       xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
   </joint>
   <link
     name="front_castor_body_link">
     <inertial>
       <origin
-        xyz="-0.0054917 0.00058892 -0.0066169"
+        xyz="0.0055133 0.00033058 -0.0066169"
         rpy="0 0 0" />
       <mass
         value="0.011291" />
       <inertia
-        ixx="4.0585E-06"
-        ixy="-2.4193E-08"
-        ixz="-8.6444E-07"
-        iyy="3.8353E-06"
-        iyz="9.2659E-08"
+        ixx="4.0603E-06"
+        ixy="1.367E-08"
+        ixz="8.6782E-07"
+        iyy="3.8335E-06"
+        iyz="5.2075E-08"
         izz="4.4634E-06" />
     </inertial>
     <visual>
@@ -230,7 +240,7 @@
       <material
         name="">
         <color
-          rgba="0.2 0.2 0.2 1" />
+          rgba="0.4 0.4 0.4 1" />
       </material>
     </visual>
     <collision>
@@ -255,22 +265,27 @@
       link="front_castor_body_link" />
     <axis
       xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
   </joint>
   <link
     name="front_castor_wheel_link">
     <inertial>
       <origin
-        xyz="0.0013823 0.012876 -1.2127E-05"
+        xyz="0.001327 -0.02196 3.518E-06"
         rpy="0 0 0" />
       <mass
         value="0.047259" />
       <inertia
-        ixx="9.5502E-06"
-        ixy="4.9669E-07"
-        ixz="-4.974E-10"
-        iyy="1.4126E-05"
-        iyz="5.3372E-11"
-        izz="9.5061E-06" />
+        ixx="9.5221E-06"
+        ixy="-2.7895E-07"
+        ixz="2.5434E-09"
+        iyy="1.4162E-05"
+        iyz="1.5234E-10"
+        izz="9.4977E-06" />
     </inertial>
     <visual>
       <origin
@@ -283,7 +298,7 @@
       <material
         name="">
         <color
-          rgba="0 0 0 1" />
+          rgba="0.6 0.6 0.6 1" />
       </material>
     </visual>
     <collision>
@@ -300,14 +315,19 @@
     name="front_castor_wheel_joint"
     type="continuous">
     <origin
-      xyz="-0.02425 -0.010422 -0.033"
+      xyz="0.021643 0.023336 -0.033"
       rpy="0 0 0" />
     <parent
       link="front_castor_body_link" />
     <child
       link="front_castor_wheel_link" />
     <axis
-      xyz="0.10669 0.99429 0" />
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
   </joint>
   <link
     name="back_castor_body_link">
@@ -336,7 +356,7 @@
       <material
         name="">
         <color
-          rgba="0.2 0.2 0.2 1" />
+          rgba="0.4 0.4 0.4 1" />
       </material>
     </visual>
     <collision>
@@ -361,12 +381,17 @@
       link="back_castor_body_link" />
     <axis
       xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
   </joint>
   <link
     name="back_castor_wheel_link">
     <inertial>
       <origin
-        xyz="0.0007609 -0.013128 -2.6984E-06"
+        xyz="0.001265 -0.021964 -2.6984E-06"
         rpy="0 0 0" />
       <mass
         value="0.047259" />
@@ -389,7 +414,7 @@
       <material
         name="">
         <color
-          rgba="0 0 0 1" />
+          rgba="0.6 0.6 0.6 1" />
       </material>
     </visual>
     <collision>
@@ -406,13 +431,18 @@
     name="back_castor_wheel_joint"
     type="continuous">
     <origin
-      xyz="-0.023712 0.011818 -0.033"
+      xyz="-0.024216 0.020654 -0.033"
       rpy="0 0 0" />
     <parent
       link="back_castor_body_link" />
     <child
       link="back_castor_wheel_link" />
     <axis
-      xyz="0.056964 0.99838 0" />
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
   </joint>
 </robot>

@@ -25,11 +25,9 @@ def generate_launch_description():
     ros_gz_sim_share = get_package_share_directory('ros_gz_sim')
 
     urdf_path = os.path.join(desc_share, 'urdf', 'AEP_Robot.urdf')
-    world_path = os.path.join(sim_share, 'worlds', 'empty.sdf')
-    rviz_config_path = os.path.join(desc_share, 'config', 'rviz', 'AEP_Robot.rviz')
+    world_path = os.path.join(sim_share, 'worlds', 'classroom.sdf')
 
     # --- URDF / TF ---
-
     robot_description = ParameterValue(
         Command(['cat', ' ', urdf_path]),
         value_type=str
@@ -59,7 +57,6 @@ def generate_launch_description():
     )
 
     # --- Gazebo (ros_gz_sim) ---
-
     gz_server = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(ros_gz_sim_share, 'launch', 'gz_sim.launch.py')
@@ -75,23 +72,14 @@ def generate_launch_description():
         name='spawn_AEP_Robot',
         output='screen',
         arguments=[
-            '-world', 'default',
+            '-world', 'classroom_world',
             '-file', urdf_path,
-            '-name', 'AEP_Robot'
+            '-name', 'AEP_Robot',
+            '-x', '2.0',
+            '-y', '-3.0',
+            '-z', '0.1',
+            '-Y', '1.57'
         ]
-    )
-
-    # --- RViz2 ---
-
-    rviz_node = Node(
-        package='rviz2',
-        executable='rviz2',
-        name='rviz2',
-        arguments=['-d', rviz_config_path],
-        parameters=[{
-            'use_sim_time': use_sim_time
-        }],
-        output='screen'
     )
 
     return LaunchDescription([
@@ -100,5 +88,4 @@ def generate_launch_description():
         robot_state_publisher_node,
         static_tf_node,
         spawn_robot_node,
-        rviz_node,
     ])

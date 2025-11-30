@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-# Change this
 WS=~/development/ros/exam_bot_ws
 
 echo ">>> Cleaning build, install, log in $WS"
@@ -16,5 +15,12 @@ colcon build --symlink-install
 
 echo ">>> Sourcing workspace overlay"
 source "$WS/install/setup.sh"
+
+echo ">>> Setting Gazebo model path"
+PREFIX=$(ros2 pkg prefix robot_description)
+export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:$PREFIX/share
+
+echo ">>> Gazebo path now:"
+echo "$GZ_SIM_RESOURCE_PATH"
 
 echo ">>> Done. You're now in: $WS"
