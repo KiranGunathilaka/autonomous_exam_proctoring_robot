@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-WS=~/development/ros/exam_bot_ws
+WS=/home/user/Desktop/exam_robot/autonomous_exam_proctoring_robot
 
 echo ">>> Cleaning build, install, log in $WS"
 rm -rf "$WS/build" "$WS/install" "$WS/log"

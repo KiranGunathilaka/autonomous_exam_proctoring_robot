@@ -4,3 +4,8 @@ build/
 
 */__pycache__/
 *.pyc
+
+.vscode/
+*.db
+*.db-shm
+*.db-wal
